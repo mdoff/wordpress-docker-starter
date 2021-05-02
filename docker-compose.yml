@@ -6,6 +6,7 @@ services:
     image: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpress
     networks:
       - wpsite
 
@@ -13,7 +14,7 @@ services:
   wordpress:
     build: config/
     volumes:
-      - ./wordpress:/var/www/html
+      - ./wordpress:/var/www/html:consistent
       - ./.vscode:/var/www/html/.vscode
       - ./config/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     networks:
