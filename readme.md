@@ -12,3 +12,13 @@ To download wordpress you can use this snippet:
 ```
 wget https://wordpress.org/latest.zip && unzip latest.zip && rm latest.zip
 ```
+
+After staring docker compose run:
+```
+sudo chown -R $USER wordpress
+```
+and then add:
+```
+define('FS_METHOD', 'direct');
+```
+to a wp-config.php
